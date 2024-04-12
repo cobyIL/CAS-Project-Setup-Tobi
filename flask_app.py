@@ -31,6 +31,28 @@ bot = Chatbot(
     instance_starter=my_instance_starter
 )
 
+my_type_role = """
+    Du nimmst die Rolle eines Bankberaters ein. gib ihm empfhelungen zur Börse.
+"""
+
+my_instance_context = """
+    Erklär ihm was zu ETF's
+"""
+
+my_instance_starter = """
+Begrüsse den User
+"""
+
+bot = Chatbot(
+    database_file="database/chatbot.db", 
+    type_id="demo-2",
+    user_id="demo-2",
+    type_name="Bank-Coahc",
+    type_role=my_type_role,
+    instance_context=my_instance_context,
+    instance_starter=my_instance_starter
+)
+
 @app.route("/")
 def index():
     return render_template("index.html")
