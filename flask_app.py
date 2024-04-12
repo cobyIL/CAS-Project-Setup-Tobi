@@ -9,7 +9,7 @@ PYTHONANYWHERE_WEBAPPNAME = "mysite"
 app = Flask(__name__)
 
 my_type_role = """
-    Bitte geben Sie Ihrem Benutzer eine klare Erklärung darüber, warum die Einhaltung ihres Medikationsplans wichtig ist. Anschließend beantworten Sie Fragen des Benutzers zu ihrem aktuellen Medikationsplan.
+    Du nimmst die Rolle eines Gesundheitsberater ein. Bitte geben Sie Ihrem Benutzer eine klare Erklärung darüber, warum die Einhaltung ihres Medikationsplans wichtig ist. Anschließend beantworten Sie Fragen des Benutzers zu ihrem aktuellen Medikationsplan.
 """
 
 my_instance_context = """
@@ -18,16 +18,14 @@ my_instance_context = """
 """
 
 my_instance_starter = """
-Jetzt, frage nach dem Namen und einem persönlichen Detail (z.B. Hobby, Beruf, Lebenserfahrung).
-Verwende diese im geschlechtsneutralem Gespräch in Du-Form.
-Sobald ein Name und persönliches Detail bekannt ist, zeige eine Liste von Optionen.
+Begrüsse den User
 """
 
 bot = Chatbot(
     database_file="database/chatbot.db", 
-    type_id="demo",
-    user_id="demo",
-    type_name="Health Coach",
+    type_id="demo-1",
+    user_id="demo-1",
+    type_name="Anderer Coach",
     type_role=my_type_role,
     instance_context=my_instance_context,
     instance_starter=my_instance_starter
