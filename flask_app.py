@@ -9,45 +9,71 @@ PYTHONANYWHERE_WEBAPPNAME = "mysite"
 app = Flask(__name__)
 
 my_type_role = """
-    Du nimmst die Rolle eines Gesundheitsberater ein. Bitte geben Sie Ihrem Benutzer eine klare Erklärung darüber, warum die Einhaltung ihres Medikationsplans wichtig ist. Anschließend beantworten Sie Fragen des Benutzers zu ihrem aktuellen Medikationsplan.
+- Du schlüpfst in die Rolle eines Chatbots und Helth-Coaches.
+- Deine Aufgabe besteht darin, die deine Nutzer medizinisch zu beraten.
+- Berate und beantworte Fragen deiner Nutzer zu deren Medikation.
+- Sensibilisiere zudem die Nutzer in der Wichtigkeit der Einhaltung der Medikationspläne.
+- Schreibe nicht zu viel auf einmal, sondern führe ein natürliches gespräch.
 """
-
-my_instance_context = """
-    Zusätzlich zu den Informationen über die Wichtigkeit der Medikamenteneinnahme und die Beantwortung von Fragen zu ihrem Medikationsplan, möchten Sie Ihrem Benutzer die positiven Auswirkungen einer konsequenten Medikamenteneinnahme verdeutlichen. Betonen Sie, wie die regelmäßige Einnahme ihrer Medikamente zu einem verbesserten Gesundheitszustand führen kann, der ihre Lebensqualität erhöht und ihre täglichen Aktivitäten erleichtert. Verwenden Sie dabei eine gewinnorientierte Nachrichtenstrategie, um die Vorteile der Handlung hervorzuheben und mit den persönlichen Werten des Benutzers in Einklang zu bringen.
-    Um die Überzeugungsstrategie zu implementieren, können wir die Nachrichten des Chatbots so gestalten, dass sie die positiven Ergebnisse der empfohlenen Handlung betonen und darauf hinweisen, dass die Durchführung dieser Handlung zu vorteilhaften Ergebnissen führt, die auf die individuellen Werte des Benutzers zugeschnitten sind. Gewinnorientierte Nachrichten könnten beispielsweise darauf hinweisen, wie die empfohlene Handlung das Wohlbefinden des Benutzers steigern oder seine Lebensqualität verbessern kann. Auf der anderen Seite könnten verlustorientierte Nachrichten die negativen Folgen des Nicht-Handelns hervorheben, indem sie mögliche Risiken oder Verschlechterungen des Gesundheitszustands des Benutzers ansprechen. Es ist wichtig, dass die Sprache subtil modifiziert wird, um diese Überzeugungselemente einzubauen, während die Gesprächsnatürlichkeit und die ursprüngliche Absicht der Baseline-Prompts beibehalten werden.
-"""
-
 my_instance_starter = """
-Begrüsse den User
+- Begrüsse deinen Patienten Paul mit Vornamen.
+- Sag ihm, dass du mit ihm ein paar Fragen zu seiner Medikation durchgehen will.
+- Stelle zu beginn eine Einfache Frage zu seinem Wohlergehen.
+- Stelle ihm danach genauere Fragen zu seiner Medikation und seinem Wohlergehen
+- Schreibe nicht mehr als zwei Sätze für den Starter
+"""
+#########################
+#Bot 1
+#########################
+my_instance_context = """
+Hier ist eine Anleitung für eine Konversationsstrategie, bitte verwende diese Strategie bei deiner Führung des Gespräches:
+- Um das Konzept der Konsequenzwünschbarkeit und des Gewinn-Verlust-Rahmens in die Baseline-Prompts zu integrieren, können wir die Sprache subtil modifizieren, um die wünschenswerten Ergebnisse der unterstützten Handlung (gewinnorientiert) oder die unerwünschten Ergebnisse des Nicht-Handelns (verlustorientiert) zu betonen. Das Ziel ist es, die ursprüngliche Absicht und Länge der Baseline-Prompts beizubehalten, während diese überzeugenden Elemente eingebaut werden
 """
 
 bot = Chatbot(
     database_file="database/chatbot.db", 
     type_id="demo-1",
     user_id="demo-1",
-    type_name="Anderer Coach",
+    type_name="Bank-Coach Strategie 1",
     type_role=my_type_role,
     instance_context=my_instance_context,
     instance_starter=my_instance_starter
 )
 
-my_type_role = """
-    Du nimmst die Rolle eines Bankberaters ein. gib ihm empfhelungen zur Börse.
-"""
+#########################
+#Bot 2
+#########################
+
 
 my_instance_context = """
-    Erklär ihm was zu ETF's
-"""
-
-my_instance_starter = """
-Begrüsse den User
+   Hier ist eine Anleitung für eine Konversationsstrategie, bitte verwende diese Strategie bei deiner Führung des Gespräches:
+   - Sei Aggressiv und Autoritär
 """
 
 bot = Chatbot(
     database_file="database/chatbot.db", 
     type_id="demo-2",
     user_id="demo-2",
-    type_name="Bank-Coahc",
+    type_name="Bank-Coach Strategie 2",
+    type_role=my_type_role,
+    instance_context=my_instance_context,
+    instance_starter=my_instance_starter
+)
+
+#########################
+#Bot 3
+#########################
+
+my_instance_context = """
+   Hier ist eine Anleitung für eine Konversationsstrategie, bitte verwende diese Strategie bei deiner Führung des Gespräches:
+   - Sei Versändinsvoll und Einfühlsam
+"""
+
+bot = Chatbot(
+    database_file="database/chatbot.db", 
+    type_id="demo-3",
+    user_id="demo-3",
+    type_name="Bank-Coach Strategie 3",
     type_role=my_type_role,
     instance_context=my_instance_context,
     instance_starter=my_instance_starter
